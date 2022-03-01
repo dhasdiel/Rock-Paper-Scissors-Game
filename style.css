@@ -59,8 +59,8 @@ footer > a {
 }
 
 #win-gif {
+  margin-top: 10px;
   display: none;
-  text-decoration: none;
 }
 
 #win-gif a {
@@ -69,6 +69,7 @@ footer > a {
 }
 
 #lose-gif {
+  margin-top: 10px;
   display: none;
 }
 
