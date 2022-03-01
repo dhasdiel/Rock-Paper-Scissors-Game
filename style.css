@@ -16,15 +16,15 @@ header > h1 {
 }
 
 #opponent-choise {
-  width: 240px;
-  height: 240px;
+  width: 200px;
+  height: 200px;
   margin-top: 10px;
   border-color: rgb(58, 58, 60);
 }
 
 #player-choise {
-  width: 240px;
-  height: 240px;
+  width: 200px;
+  height: 200px;
   margin-top: 10px;
   border-color: rgb(58, 58, 60);
 }
@@ -55,5 +55,24 @@ footer > a {
   color: gainsboro;
   font-size: 1.5rem;
   font-weight: bold;
+  text-decoration: none;
+}
+
+#win-gif {
+  display: none;
+  text-decoration: none;
+}
+
+#win-gif a {
+  color: gainsboro;
+  text-decoration: none;
+}
+
+#lose-gif {
+  display: none;
+}
+
+#lose-gif a {
+  color: gainsboro;
   text-decoration: none;
 }

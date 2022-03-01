@@ -12,18 +12,24 @@ window.onload = function () {
     choice.id = choices[i];
     choice.src = "./images/" + choices[i] + ".png";
     choice.addEventListener("click", selectChoice);
+    choice.style = "animation: bounce; animation-duration: 2s;";
     document.getElementById("choises").append(choice);
   }
 };
 
+// Function send the choise of the player to the board and make the opponent choise
 function selectChoice() {
   // Make player choise
   player = this.id;
   document.getElementById("player-choise").src = "./images/" + player + ".png";
+  document.getElementById("player-choise").style =
+    "animation: flipInX; animation-duration: 0.5s;";
   // Make opponent choise (random)
   opponent = choices[Math.floor(Math.random() * choices.length)];
   document.getElementById("opponent-choise").src =
     "./images/" + opponent + ".png";
+  document.getElementById("opponent-choise").style =
+    "animation: flipInX; animation-duration: 0.5s;";
 
   // Update the game
   checkRoundWinner(player, opponent);
@@ -67,9 +73,11 @@ function whoWon(playerScore, opponentScore) {
   if (playerScore === MAX_SCORE) {
     disableChoices();
     alert("You have won! 😁");
+    document.getElementById("win-gif").style.display = "block";
   } else if (opponentScore === MAX_SCORE) {
     disableChoices();
     alert("You have lost! 😔");
+    document.getElementById("lose-gif").style.display = "block";
   }
 }
 
