@@ -70,14 +70,18 @@ function checkRoundWinner(player, opponent) {
 
 // Function that check if player or opponent his finished the game
 function whoWon(playerScore, opponentScore) {
-  if (playerScore === MAX_SCORE) {
-    disableChoices();
-    alert("You have won! 😁");
-    document.getElementById("win-gif").style.display = "block";
-  } else if (opponentScore === MAX_SCORE) {
-    disableChoices();
-    alert("You have lost! 😔");
-    document.getElementById("lose-gif").style.display = "block";
+  if (playerScore === MAX_SCORE || opponentScore === MAX_SCORE) {
+    if (playerScore === MAX_SCORE) {
+      disableChoices();
+      alert("You have won! 😁");
+      document.getElementById("win-gif").style.display = "block";
+    } else if (opponentScore === MAX_SCORE) {
+      disableChoices();
+      alert("You have lost! 😔");
+      document.getElementById("lose-gif").style.display = "block";
+    }
+    document.getElementById("player-choise").style.display = "none";
+    document.getElementById("opponent-choise").style.display = "none";
   }
 }
 
