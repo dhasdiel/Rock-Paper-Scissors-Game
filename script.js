@@ -73,15 +73,16 @@ function whoWon(playerScore, opponentScore) {
   if (playerScore === MAX_SCORE || opponentScore === MAX_SCORE) {
     if (playerScore === MAX_SCORE) {
       disableChoices();
-      alert("You have won! 😁");
+      //alert("You have won! 😁");
       document.getElementById("win-gif").style.display = "block";
     } else if (opponentScore === MAX_SCORE) {
       disableChoices();
-      alert("You have lost! 😔");
+      //alert("You have lost! 😔");
       document.getElementById("lose-gif").style.display = "block";
     }
     document.getElementById("player-choise").style.display = "none";
     document.getElementById("opponent-choise").style.display = "none";
+    document.getElementById("reset-btn").style.display = "block";
   }
 }
 
@@ -92,4 +93,27 @@ function disableChoices() {
       .getElementById(choices[i])
       .removeEventListener("click", selectChoice);
   }
+}
+
+// Function that make the click avilable (eventListner)
+function avilableChoices() {
+  for (let i = 0; i < choices.length; i++) {
+    document.getElementById(choices[i]).addEventListener("click", selectChoice);
+  }
+}
+
+// Function that reset the game
+function resetGame() {
+  playerScore = 0;
+  opponentScore = 0;
+  document.getElementById("player-score").innerText = playerScore;
+  document.getElementById("opponent-score").innerText = opponentScore;
+  avilableChoices();
+  document.getElementById("player-choise").style.display = "";
+  document.getElementById("opponent-choise").style.display = "";
+  document.getElementById("player-choise").removeAttribute("src");
+  document.getElementById("opponent-choise").removeAttribute("src");
+  document.getElementById("win-gif").style.display = "none";
+  document.getElementById("lose-gif").style.display = "none";
+  document.getElementById("reset-btn").style.display = "none";
 }

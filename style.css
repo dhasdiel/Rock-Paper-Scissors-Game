@@ -3,7 +3,7 @@ body {
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   text-align: center;
   background-color: rgb(18, 18, 19);
-  color: white;
+  color: gainsboro;
 }
 
 header {
@@ -30,6 +30,26 @@ header > h1 {
   border-color: rgb(58, 58, 60);
 }
 
+#win-gif {
+  margin-top: 10px;
+  display: none;
+}
+
+#win-gif a {
+  color: gainsboro;
+  text-decoration: none;
+}
+
+#lose-gif {
+  margin-top: 10px;
+  display: none;
+}
+
+#lose-gif a {
+  color: gainsboro;
+  text-decoration: none;
+}
+
 #choises {
   width: 240px;
   height: 80px;
@@ -48,7 +68,29 @@ header > h1 {
   top: 1px;
 }
 
+#reset-btn {
+  display: none;
+}
+
+#reset-btn > button {
+  color: gainsboro;
+  background-color: rgb(129, 131, 132);
+  width: 120px;
+  height: 40px;
+  font-family: inherit;
+  font-weight: bold;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#reset-btn > button:active {
+  position: relative;
+  top: 1px;
+}
+
 footer {
+  margin-top: 10px;
   border-top: 1px solid rgb(58, 58, 60);
 }
 
@@ -56,25 +98,5 @@ footer > a {
   color: gainsboro;
   font-size: 1.5rem;
   font-weight: bold;
-  text-decoration: none;
-}
-
-#win-gif {
-  margin-top: 10px;
-  display: none;
-}
-
-#win-gif a {
-  color: gainsboro;
-  text-decoration: none;
-}
-
-#lose-gif {
-  margin-top: 10px;
-  display: none;
-}
-
-#lose-gif a {
-  color: gainsboro;
   text-decoration: none;
 }
