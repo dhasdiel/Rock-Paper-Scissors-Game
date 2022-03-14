@@ -3,7 +3,22 @@ var player;
 var opponent;
 var playerScore = 0;
 var opponentScore = 0;
-var choices = ["paper", "rock", "scissors"];
+
+const choices = ["paper", "rock", "scissors"];
+const gifsWinArray = [
+  "https://giphy.com/embed/5n045kl6TL1Jubg6oQ",
+  "https://giphy.com/embed/gd0Dqg6rYhttBVCZqd",
+  "https://giphy.com/embed/3kD720zFVu22rfIA0s",
+  "https://giphy.com/embed/3o72EWtjXLzk1Az7P2",
+  "https://giphy.com/embed/zaqclXyLz3Uoo",
+];
+const gifsLoseArray = [
+  "https://giphy.com/embed/3o7TKr3nzbh5WgCFxe",
+  "https://giphy.com/embed/cr9vIO7NsP5cY",
+  "https://giphy.com/embed/1ryrwFNXqNjC8",
+  "https://giphy.com/embed/fw8XWwT5YuSJGBwddf",
+  "https://giphy.com/embed/tw0xsY7gXcLIfnfFfc",
+];
 
 // Make the choices visible
 window.onload = function () {
@@ -25,7 +40,7 @@ function selectChoice() {
   document.getElementById("player-choise").style =
     "animation: flipInX; animation-duration: 0.5s;";
   // Make opponent choise (random)
-  opponent = choices[Math.floor(Math.random() * choices.length)];
+  opponent = getRandomElFromArr(choices);
   document.getElementById("opponent-choise").src =
     "./images/" + opponent + ".png";
   document.getElementById("opponent-choise").style =
@@ -72,14 +87,17 @@ function checkRoundWinner(player, opponent) {
 function whoWon(playerScore, opponentScore) {
   if (playerScore === MAX_SCORE || opponentScore === MAX_SCORE) {
     if (playerScore === MAX_SCORE) {
-      disableChoices();
       //alert("You have won! 😁");
+      document.querySelector("#win-gif>iframe").src =
+        getRandomElFromArr(gifsWinArray);
       document.getElementById("win-gif").style.display = "block";
     } else if (opponentScore === MAX_SCORE) {
-      disableChoices();
       //alert("You have lost! 😔");
+      document.querySelector("#lose-gif>iframe").src =
+        getRandomElFromArr(gifsLoseArray);
       document.getElementById("lose-gif").style.display = "block";
     }
+    disableChoices();
     document.getElementById("player-choise").style.display = "none";
     document.getElementById("opponent-choise").style.display = "none";
     document.getElementById("reset-btn").style.display = "block";
@@ -116,4 +134,9 @@ function resetGame() {
   document.getElementById("win-gif").style.display = "none";
   document.getElementById("lose-gif").style.display = "none";
   document.getElementById("reset-btn").style.display = "none";
+}
+
+// Function return a random element from array
+function getRandomElFromArr(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
 }

@@ -35,19 +35,9 @@ header > h1 {
   display: none;
 }
 
-#win-gif a {
-  color: gainsboro;
-  text-decoration: none;
-}
-
 #lose-gif {
   margin-top: 10px;
   display: none;
-}
-
-#lose-gif a {
-  color: gainsboro;
-  text-decoration: none;
 }
 
 #choises {
