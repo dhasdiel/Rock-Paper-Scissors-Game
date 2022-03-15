@@ -4,6 +4,14 @@ var opponent;
 var playerScore = 0;
 var opponentScore = 0;
 
+/*const playerChoiseEl = document.getElementById("player-choise");
+const opponentChoiseEl = document.getElementById("opponent-choise");
+const playerScoreEl = document.getElementById("player-score");
+const opponentScoreEl = document.getElementById("opponent-score");
+const winGifEl = document.getElementById("win-gif");
+const loseGifEl = document.getElementById("lose-gif");
+const resetBtnEl = document.getElementById("reset-btn");*/
+
 const choices = ["paper", "rock", "scissors"];
 const gifsWinArray = [
   "https://giphy.com/embed/5n045kl6TL1Jubg6oQ",
@@ -19,6 +27,7 @@ const gifsLoseArray = [
   "https://giphy.com/embed/fw8XWwT5YuSJGBwddf",
   "https://giphy.com/embed/tw0xsY7gXcLIfnfFfc",
 ];
+const audioArray = ["/audio/win.wav", "/audio/lose.wav"];
 
 // Make the choices visible
 window.onload = function () {
@@ -87,16 +96,15 @@ function checkRoundWinner(player, opponent) {
 function whoWon(playerScore, opponentScore) {
   if (playerScore === MAX_SCORE || opponentScore === MAX_SCORE) {
     if (playerScore === MAX_SCORE) {
-      //alert("You have won! 😁");
       document.querySelector("#win-gif>iframe").src =
         getRandomElFromArr(gifsWinArray);
       document.getElementById("win-gif").style.display = "block";
     } else if (opponentScore === MAX_SCORE) {
-      //alert("You have lost! 😔");
       document.querySelector("#lose-gif>iframe").src =
         getRandomElFromArr(gifsLoseArray);
       document.getElementById("lose-gif").style.display = "block";
     }
+    playAudio(playerScore === MAX_SCORE ? 0 : 1);
     disableChoices();
     document.getElementById("player-choise").style.display = "none";
     document.getElementById("opponent-choise").style.display = "none";
@@ -139,4 +147,9 @@ function resetGame() {
 // Function return a random element from array
 function getRandomElFromArr(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
+}
+
+function playAudio(index) {
+  let audio = new Audio(audioArray[index]);
+  audio.play();
 }
